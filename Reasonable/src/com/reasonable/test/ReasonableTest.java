@@ -1,36 +1,42 @@
 package com.reasonable.test;
 
-import static org.junit.Assert.*;
-
 import org.junit.Before;
 import org.junit.Test;
 
-import com.reasonable.core.IComparableAndReasonable;
-
+/**
+ * Reasonable test class
+ * 
+ * @author Ethem Kurt
+ * 
+ * @version 1.0.0
+ * 
+ * @since 1.0.0
+ *
+ */
 public class ReasonableTest {
 
-	IComparableAndReasonable<Integer, String> reasonable = new IComparableAndReasonable<Integer, String>() {
+	/**
+	 * Reasonable string comparator
+	 */
+	private ReasonableStringComparator reasonable;
 
-		@Override
-		public int compareTo(Integer arg0) {
-			// TODO Auto-generated method stub
-			return 0;
-		}
-		
-		@Override
-		public String getReason() {
-			return null;
-		}
-		
-	};
-	
+	/**
+	 * Set up
+	 * 
+	 * @throws Exception
+	 *             Exception
+	 */
 	@Before
 	public void setUp() throws Exception {
+		reasonable = new ReasonableStringComparator("This");
 	}
 
+	/**
+	 * Test
+	 */
 	@Test
 	public void test() {
-		fail("Not yet implemented");
+		if (reasonable.compareTo("That") != 0)
+			System.out.println(reasonable);
 	}
-
 }
